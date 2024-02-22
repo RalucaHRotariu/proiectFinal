@@ -1,6 +1,7 @@
 import time
 import unittest
 
+from HtmlTestRunner import HTMLTestRunner
 from selenium import webdriver
 from selenium.common import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
@@ -163,6 +164,9 @@ def test_suite():
 
 
 if __name__ == '__main__':
-    runner = unittest.TextTestRunner()
+    runner = HTMLTestRunner(output='report',
+                            combine_reports=True,
+                            report_title='TestFavorites Results',
+                            report_name='Automated Test Results')
     suite = test_suite()
-    result = runner.run(suite)
+    runner.run(suite)
