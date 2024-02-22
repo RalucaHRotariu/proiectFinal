@@ -1,5 +1,6 @@
 import unittest
 
+from HtmlTestRunner import HTMLTestRunner
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -107,3 +108,19 @@ class TestsLogin(unittest.TestCase):
             explict_wait.until(EC.visibility_of_element_located(self.LOGGED_IN_USERNAME_ELEMENT)))
 
         assert "ROTARIU RALUCA" in logged_in_username_element.text, "Logarea nu s-a facut cu succes!"
+
+def test_suite():
+    suite = unittest.TestSuite()
+    suite.addTest(TestsLogin('test_login_incorrect_password'))
+    suite.addTest(TestsLogin('test_login_confirm_button_not_available'))
+    suite.addTest(TestsLogin('test_login_ok'))
+    return suite
+
+
+if __name__ == '__main__':
+    runner = HTMLTestRunner(output='report',
+                            combine_reports=True,
+                            report_title='TestLogin Results',
+                            report_name='Automated Test Results')
+    suite = test_suite()
+    runner.run(suite)
