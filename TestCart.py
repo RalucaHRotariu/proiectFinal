@@ -105,7 +105,7 @@ if __name__ == '__main__':
     runner = HTMLTestRunner(output='report',
                             combine_reports=True,
                             report_title='TestCart Results',
-                            report_name='Automated Test Results')
+                            report_name='Cart Automated Test Results')
     suite = test_suite()
     runner.run(suite)
 
