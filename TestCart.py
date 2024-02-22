@@ -1,5 +1,6 @@
 import unittest
 
+from HtmlTestRunner import HTMLTestRunner
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -101,6 +102,10 @@ def test_suite():
 
 
 if __name__ == '__main__':
-    runner = unittest.TextTestRunner()
+    runner = HTMLTestRunner(output='report',
+                            combine_reports=True,
+                            report_title='TestCart Results',
+                            report_name='Automated Test Results')
     suite = test_suite()
-    result = runner.run(suite)
+    runner.run(suite)
+
