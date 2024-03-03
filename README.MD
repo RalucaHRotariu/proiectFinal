@@ -1,25 +1,25 @@
-       				 De ce este importantă testarea automată?
+			De ce este importantă testarea automată?
 
 Testarea automată reduce sarcinile manuale repetitive în timpul fazei de testare. 
 - permite realizarea mai multor teste în mai puțin timp, mărind astfel productivitatea și capacitatea de testare.
 - înlătura eroarea umană, un script configurând mereu în același fel și validând mereu în același mod scenariul dorit.
 
 
-				Test Driven Development (TDD)
+			Test Driven Development (TDD)
 - este un proces de dezvoltare software
 - se bazeaza pe transformarea cerintelor de business in teste inainte de a avea codul sursa dezvoltat. 
 
 TDD este in general implementat de catre echipa de dezvoltare prin definirea a ceea ce se numesc teste unitare care vor testa ceea ce stim ca ar trebui sa faca sistemul.
 
 
-				Avantajele utilizarii unui TDD: 
+			Avantajele utilizarii unui TDD: 
 
 - Ajuta la crearea minimului de cod optim necesar implementarii unei functionalitati
 - Se concentreaza pe teste, asigurand astfel o aplicatie mai apropiata de nevoile clientului
 - Asigura o acoperire mai mare a aplicatiei prin teste
 - Codul este mai usor de intretinut.
 
-				Testarea unitară (sau de componente) 
+			Testarea unitară (sau de componente) 
 
 - este o modalitate prin care fiecare bucată individuală de cod este testată pentru a verifica dacă este pregatită pentru utilizare. 
 
