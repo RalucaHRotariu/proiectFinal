@@ -52,11 +52,12 @@ Testele au fost grupate in 3 clase dupa cum urmeaza:
    Clasa TestUtils contine cele doua metode de SetUp si TearDown folosite in toate testele create.
 
    Clasa AllTestsSuite contine suita de teste si ne ajuta sa:
+
 - Rulam toate testele in acelasi timp
 - Specificam configuratia pentru raportul de executie
 
 
-   Atunci cand vrem sa rulam testele putem sa o facem sub mai multe forme: 
+   			Atunci cand vrem sa rulam testele putem sa o facem sub mai multe forme: 
  - Click pe triunghiul verde de langa numele clasei de test -> va rula toate testele din acea clasa
  - Click pe triunghiul verde de langa numele metodei de test -> va executa doar metoda de test pe care am rulat-o
  - Rularea din terminal a unui fisier de teste specific: python -m unittest filename.py
