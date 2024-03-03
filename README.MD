@@ -60,9 +60,9 @@ Clasa AllTestsSuite contine suita de teste si ne ajuta sa:
 
 - va trebui sa definim un runner care sa contina parametrii de configurare ai raportului de executie:
 
-runner = HTMLTestRunner(output='report',                     	                      
-			combine_reports=True,                                               
-			report_title='TestLogin Results',                                              
+runner = HTMLTestRunner(output='report',      	                      
+			combine_reports=True,                                     
+			report_title='TestLogin Results',                                        
 			report_name='Login Automated Test Results')
 
 Pentru a putea avea acest runner functional trebuie sa instalam (pip install html-testRunner) si sa importam (from HtmlTestRunner import HTMLTestRunner) libraria aferenta. 
