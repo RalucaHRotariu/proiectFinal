@@ -1,3 +1,23 @@
+    De ce este importantă testarea automată?
+
+Testarea automată reduce sarcinile manuale repetitive în timpul fazei de testare. 
+	=> permite realizarea mai multor teste în mai puțin timp, mărind astfel productivitatea și capacitatea de testare. 
+ => înlătura eroarea umană, un script configurând mereu în același fel și validând mereu în același mod scenariul dorit.
+
+
+Test Driven Development (TDD) este un proces de dezvoltare software care se bazeaza pe transformarea cerintelor de business in teste inainte de a avea codul sursa dezvoltat. TDD este in general implementat de catre echipa de dezvoltare prin definirea a ceea ce se numesc teste unitare care vor testa ceea ce stim ca ar trebui sa faca sistemul.
+
+Avantajele utilizarii unui TDD: 
+- Ajuta la crearea minimului de cod optim necesar implementarii unei functionalitati
+- Se concentreaza pe teste, asigurand astfel o aplicatie mai apropiata de nevoile clientului
+- Asigura o acoperire mai mare a aplicatiei prin teste
+- Codul este mai usor de intretinut.
+
+Testarea unitară (sau de componente) e o modalitate prin care fiecare bucată individuală de cod este testată pentru a verifica dacă este pregatită pentru utilizare. 
+
+Un test unitar reprezintă testarea celei mai mici bucăți funcționale dintr-o aplicație cum ar fi funcții, clase, proceduri, interefețe.
+
+
 Testare functionalitati site Decathlon
 
 Testele au fost scrise in Python, IDE Pycharm -> Selenium (Pentru a folosi libraria selenium trebuie sa o importam folosind instructiunea insert, din care trebuie sa importam clasa webdriver: from selenium import webdriver) si UnitTest (import unittest, apoi, pentru a putea sa ne folosim de libraria unit test, trebuie sa cream o clasa de teste care sa mosteneasca clasa TestCase din libraria unittest).
