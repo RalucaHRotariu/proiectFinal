@@ -1,43 +1,30 @@
 import time
 import unittest
 
-from HtmlTestRunner import HTMLTestRunner
-from selenium import webdriver
 from selenium.common import NoSuchElementException
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from TestUtils import TestUtils
 
-class TestsLogin(unittest.TestCase):
-    LANDING_PAGE_URL = "https://www.decathlon.ro/login"
+
+class TestsFavorites(unittest.TestCase, TestUtils):
+    LANDING_PAGE_URL = "https://www.decathlon.ro"
     CART_COUNTER = (By.CSS_SELECTOR, ".count.svelte-3335j1")
     BINOCULARS_ITEM_URL = "https://www.decathlon.ro/p/binoclu-etans-900-10x42-kaki/_/R-p-327224?mc=8600097"
     AGREE_TO_COOKIES_BUTTON = (By.ID, "didomi-notice-agree-button")
     FAVORITES_COUNTER = (By.CSS_SELECTOR, "span.indicator.svelte-15albxt")
-    ADD_TO_FAVORITES_BUTTON = (By.XPATH,
-                               "/html/body/div[2]/main/article/div/div[2]/section/div[4]/div/button[2]")
-    SEE_FAVORITES_BUTTON = (By.XPATH,
-                            "/html/body/div[2]/header/div[1]/nav/div[2]/div[1]/div/button")
-    CLOSE_FAVORITES_DIALOG = (By.XPATH,
-                              "/html/body/div[3]/div/div[2]/div[1]/button/span")
-    DIALOG_ADD_TO_CART_BUTTON = (By.XPATH,
-                                 "/html/body/div[3]/div/div[2]/div[2]/p/div/section/div/article/div[3]/div/button[1]")
+    ADD_TO_FAVORITES_BUTTON = (By.XPATH, "//div[4]/div/button[2]")
+    SEE_FAVORITES_BUTTON = (By.XPATH, "//nav/div[2]/div[1]/div/button")
+    CLOSE_FAVORITES_DIALOG = (By.XPATH, "//div[2]/div[1]/button/span")
+    DIALOG_ADD_TO_CART_BUTTON = (By.XPATH, "//article/div[3]/div/button[1]")
 
     def setUp(self):
-        chrome_options = Options()
-        chrome_options.add_argument("--disable-notifications")
-
-        self.driver = webdriver.Chrome(options=chrome_options,
-                                       service=Service())
-        self.driver.implicitly_wait(5)
-        self.driver.maximize_window()
-        self.driver.get(self.LANDING_PAGE_URL)
+        self.driver = TestUtils.setUp(self)
 
     def tearDown(self):
-        self.driver.quit()
+        TestUtils.tearDown(self)
 
     def test_favorites_empty(self):
         self.driver.get(self.BINOCULARS_ITEM_URL)
@@ -152,21 +139,3 @@ class TestsLogin(unittest.TestCase):
 
         assert "0" in favorites_counter_element.text, "Numarul de produse Favorite este diferit de 0"
         assert "1" in cart_counter_element.text, "Numarul de produse din cos nu este egal cu 1"
-
-
-def test_suite():
-    suite = unittest.TestSuite()
-    suite.addTest(TestsLogin('test_favorites_empty'))
-    suite.addTest(TestsLogin('test_add_item_to_favorites'))
-    suite.addTest(TestsLogin('test_remove_item_from_favorites'))
-    suite.addTest(TestsLogin('test_move_from_favorites_to_Cart'))
-    return suite
-
-
-if __name__ == '__main__':
-    runner = HTMLTestRunner(output='report',
-                            combine_reports=True,
-                            report_title='TestFavorites Results',
-                            report_name='Favorites Automated Test Results')
-    suite = test_suite()
-    runner.run(suite)
