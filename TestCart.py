@@ -1,15 +1,13 @@
 import unittest
 
-from HtmlTestRunner import HTMLTestRunner
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from TestUtils import TestUtils
 
-class TestCart(unittest.TestCase):
+
+class TestCart(unittest.TestCase, TestUtils):
     LANDING_PAGE_URL = "https://www.decathlon.ro"
     EMAIL_SELECTOR = (By.ID, "input-email")
     PASSWORD_SELECTOR = (By.ID, "input-password")
@@ -25,17 +23,10 @@ class TestCart(unittest.TestCase):
     DELETE_FROM_CART_BUTTON = (By.CSS_SELECTOR, "button.delete.svelte-1ajpw3q")
 
     def setUp(self):
-        chrome_options = Options()
-        chrome_options.add_argument("--disable-notifications")
-
-        self.driver = webdriver.Chrome(options=chrome_options,
-                                       service=Service())
-        self.driver.implicitly_wait(5)
-        self.driver.maximize_window()
-        self.driver.get(self.LANDING_PAGE_URL)
+        self.driver = TestUtils.setUp(self)
 
     def tearDown(self):
-        self.driver.quit()
+        TestUtils.tearDown(self)
 
     def test_cart_empty(self):
         self.driver.get(self.LANDING_PAGE_URL)
@@ -68,7 +59,7 @@ class TestCart(unittest.TestCase):
     def test_remove_from_cart(self):
         self.driver.get(self.BINOCULARS_ITEM_URL)
 
-        explict_wait = WebDriverWait(self.driver, 6)
+        explict_wait = WebDriverWait(self.driver, 8)
         agree_to_cookies_button = (
             explict_wait.until(EC.visibility_of_element_located(self.AGREE_TO_COOKIES_BUTTON)))
         agree_to_cookies_button.click()
@@ -91,21 +82,3 @@ class TestCart(unittest.TestCase):
             explict_wait.until(EC.visibility_of_element_located(self.CART_COUNTER)))
 
         assert "0" in cart_counter_element.text, "Numarul de produse din cos nu este egal cu 0"
-
-
-def test_suite():
-    suite = unittest.TestSuite()
-    suite.addTest(TestCart('test_cart_empty'))
-    suite.addTest(TestCart('test_add_item_to_cart'))
-    suite.addTest(TestCart('test_remove_from_cart'))
-    return suite
-
-
-if __name__ == '__main__':
-    runner = HTMLTestRunner(output='report',
-                            combine_reports=True,
-                            report_title='TestCart Results',
-                            report_name='Cart Automated Test Results')
-    suite = test_suite()
-    runner.run(suite)
-
