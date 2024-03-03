@@ -10,7 +10,7 @@ Testarea automată reduce sarcinile manuale repetitive în timpul fazei de testa
 	TDD este in general implementat de catre echipa de dezvoltare prin definirea a ceea ce se numesc teste unitare care vor testa ceea ce stim ca ar trebui sa faca sistemul.
 
 
-	Avantajele utilizarii unui TDD: 
+	Avantajele utilizarii unui TDD: 
 
 - Ajuta la crearea minimului de cod optim necesar implementarii unei functionalitati
 - Se concentreaza pe teste, asigurand astfel o aplicatie mai apropiata de nevoile clientului
@@ -51,7 +51,7 @@ Testele au fost grupate in 3 clase dupa cum urmeaza:
 
 Clasa TestUtils contine cele doua metode de SetUp si TearDown folosite in toate testele create.
 
-Clasa AllTestSuite contine suita de teste si ne ajuta sa:
+Clasa AllTestsSuite contine suita de teste si ne ajuta sa:
 - Rulam toate testele in acelasi timp
 - Specificam configuratia pentru raportul de executie
 
