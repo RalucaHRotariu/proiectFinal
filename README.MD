@@ -1,11 +1,12 @@
         De ce este importantă testarea automată?
 
 Testarea automată reduce sarcinile manuale repetitive în timpul fazei de testare. 
- => permite realizarea mai multor teste în mai puțin timp, mărind astfel productivitatea și capacitatea de testare. 
- => înlătura eroarea umană, un script configurând mereu în același fel și validând mereu în același mod scenariul dorit.
+=> permite realizarea mai multor teste în mai puțin timp, mărind astfel productivitatea și capacitatea de testare.
+=> înlătura eroarea umană, un script configurând mereu în același fel și validând mereu în același mod scenariul dorit.
 
 
-        Test Driven Development (TDD) este un proces de dezvoltare software care se bazeaza pe transformarea cerintelor de business in teste inainte de a avea codul sursa dezvoltat. TDD este in general implementat de catre echipa de dezvoltare prin definirea a ceea ce se numesc teste unitare care vor testa ceea ce stim ca ar trebui sa faca sistemul.
+        Test Driven Development (TDD) este un proces de dezvoltare software care se bazeaza pe transformarea cerintelor de business in teste inainte de a avea codul sursa dezvoltat. 
+	TDD este in general implementat de catre echipa de dezvoltare prin definirea a ceea ce se numesc teste unitare care vor testa ceea ce stim ca ar trebui sa faca sistemul.
 
 
 	Avantajele utilizarii unui TDD: 
@@ -50,8 +51,8 @@ Testele au fost grupate in 3 clase dupa cum urmeaza:
 Clasa TestUtils contine cele doua metode de SetUp si TearDown folosite in toate testele create.
 
 Clasa AllTestSuite contine suita de teste si ne ajuta sa:
-• Rulam toate testele in acelasi timp
-• Specificam configuratia pentru raportul de executie
+- Rulam toate testele in acelasi timp
+- Specificam configuratia pentru raportul de executie
 
 
 
