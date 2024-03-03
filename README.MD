@@ -1,4 +1,4 @@
-    De ce este importantă testarea automată?
+        De ce este importantă testarea automată?
 
 Testarea automată reduce sarcinile manuale repetitive în timpul fazei de testare. 
  => permite realizarea mai multor teste în mai puțin timp, mărind astfel productivitatea și capacitatea de testare. 
