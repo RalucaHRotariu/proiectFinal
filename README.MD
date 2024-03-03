@@ -1,11 +1,11 @@
-       			 De ce este importantă testarea automată?
+       				 De ce este importantă testarea automată?
 
 Testarea automată reduce sarcinile manuale repetitive în timpul fazei de testare. 
 - permite realizarea mai multor teste în mai puțin timp, mărind astfel productivitatea și capacitatea de testare.
 - înlătura eroarea umană, un script configurând mereu în același fel și validând mereu în același mod scenariul dorit.
 
 
-			Test Driven Development (TDD)
+				Test Driven Development (TDD)
 - este un proces de dezvoltare software
 - se bazeaza pe transformarea cerintelor de business in teste inainte de a avea codul sursa dezvoltat. 
 
