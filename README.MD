@@ -25,7 +25,7 @@ Un test unitar reprezintă testarea celei mai mici bucăți funcționale dintr-o
 
 				Testare functionalitati site Decathlon
 
-Testele au fost scrise in Python, IDE Pycharm -> Selenium (Pentru a folosi libraria selenium trebuie sa o importam folosind instructiunea insert, din care trebuie sa importam clasa webdriver: from selenium import webdriver) si UnitTest (import unittest, apoi, pentru a putea sa ne folosim de libraria unit test, trebuie sa cream o clasa de teste care sa mosteneasca clasa TestCase din libraria unittest).
+Testele au fost scrise in Python, IDE Pycharm -> Selenium (Pentru a folosi libraria selenium trebuie sa o importam folosind instructiunea insert, din care trebuie sa importam clasa webdriver: from selenium import webdriver) si UnitTest (import unittest, apoi, pentru a putea sa ne folosim de libraria unit test, trebuie sa cream o clasa de teste care sa mosteneasca clasa TestCase din libraria unittest).  
 Pentru rulare, se poate executa comanda: "python AllTestsSuite.py"
 
 Testele au fost grupate in 3 clase dupa cum urmeaza:
