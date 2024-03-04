@@ -1,22 +1,36 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
+import unittest
+
+from HtmlTestRunner import HTMLTestRunner
+
+from TestCart import TestCart
+from TestFavorites import TestsFavorites
+from TestLogin import TestsLogin
 
 
-class TestUtils:
-    LANDING_PAGE_URL = "https://www.decathlon.ro"
+def test_suite():
+    suite = unittest.TestSuite()
+    # Add Login tests
+    suite.addTest(TestsLogin('test_login_incorrect_password'))
+    suite.addTest(TestsLogin('test_login_confirm_button_not_available'))
+    suite.addTest(TestsLogin('test_login_ok'))
+    # Add Favorites tests
+    suite.addTest(TestsFavorites('test_favorites_empty'))
+    suite.addTest(TestsFavorites('test_add_item_to_favorites'))
+    suite.addTest(TestsFavorites('test_remove_item_from_favorites'))
+    suite.addTest(TestsFavorites('test_move_from_favorites_to_Cart'))
+    # # Add Cart tests
+    suite.addTest(TestCart('test_cart_empty'))
+    suite.addTest(TestCart('test_add_item_to_cart'))
+    suite.addTest(TestCart('test_remove_from_cart'))
+    return suite
 
-    def setUp(self):
-        chrome_options = Options()
-        chrome_options.add_argument("--disable-notifications")
 
-        self.driver = webdriver.Chrome(options=chrome_options,
-                                       service=Service())
-        self.driver.implicitly_wait(5)
-        self.driver.maximize_window()
-        self.driver.get(self.LANDING_PAGE_URL)
+class AllTestsSuite:
+    if __name__ == '__main__':
 
-        return self.driver
-
-    def tearDown(self):
-        self.driver.quit()
+        runner = HTMLTestRunner(output='report',
+                                combine_reports=True,
+                                report_title='Test Results',
+                                report_name='Automated Test Results')
+        suite = test_suite()
+        runner.run(suite)
